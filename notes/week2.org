@@ -46,18 +46,38 @@ first item
 + $\implies 3 + 4 - 2 = 5 \le c$
 + choose $c=5$
 *** transitive
-**** 1
 $f(n) = O(g(n))$
 $g(n) = O(h(n))$
 $\implies f(n) = O(h(n))$
-**** 2
+*** absorbant
 $f(n) = O(h(n))$
 $g(n) = O(h(n))$
 $\implies f(n) + g(n) = O(h(n))$
 *** any $k^\text{th}$ deg poly of $n$ is $O(n^{k+j})$ $\forall j>0$
-** $\Theta(n)$ greatest lowest bound
-** $\Omega(n)$ both
+** $\Theta(n)$ both
+** $\Omega(n)$ greatest lowest bound
 * logarithm
 ** $\lg$ binary
 ** $\log$ decimal
 ** $\ln$ euler
+* recursive
+** linear
+$T(n) = kn$
+$T(n) = 2\cdot T(\frac{n}2)$
+** log
+$T(n) = T(n/2) + k$
+$\implies O(\log n)$
+** linearithmic
+$T(n)=2*T(n/2)+O(n)$
+$\implies O(n\log n)$
+** quadratic
+$T(n) = T(n-1) + O(n)$
+$O(n^2)$
+** exponential
+$T(n)=T(n-1)*k$
+$O(k^n)$
+* eg
+$f(n)=3n^2$
+$g(n)=5n^2$
+$f(n)=O(g(n))$
+$g(n)=\Omega(f(n))$
