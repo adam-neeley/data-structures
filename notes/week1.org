@@ -1,0 +1,73 @@
+#+title: week 1
+
+* due dates
+** chapter 01
++ due sun 11:59pm
++ sun 9/8
+** lab #1 post tomorrow
++ due in lab mon 9/9
+* abstract data types
++ string
++ vector
++ bag
++ stack
+** eg
+*** stack
+|
+| toPush |   | toPop |
+|        |   |       |
+|        | 3 |       |
+|        | 2 |       |
+|        | 1 |       |
+*** operations (atomic actions)
++ push
++ pop
++ top
++ empty
++ create
+
+* C++ implementation
++ classes / abjects
++ encapsulation
++ inheritance
++ polymorphism
++ pointers
+
+** object
++ data structure with methods
++ can use class / template class to define ADT
+** data encapsulation
++ instantiation of a class, creating an entity that can be used in a program
+** information hiding
+** inheritance
++ forms a hierarchy
++ "is-a" relationship
+** polymorphism
+** pointers
++ variable is defined by
+  1. what it stores
+  2. its location in memory
+*** dereference
+#+begin_src c
+p_ptr = &i;
+p_val = *p_ptr;
+#+end_src
+*** after using
+#+begin_src c
+p_ptr = new int;
+delete p_ptr;
+#+end_src
+*** after deleting
+#+begin_src c
+p_ptr = NULL;
+p_ptr = 0;
+#+end_src
+*** leaks
+#+begin_src c
+p_ptr = new int;
+p_ptr = new int;
+#+end_src
+*** copy constructors
++ deep copy vs shallow copy
+*** pointers vs ref variables
++ can change value of pointer vs value of (eg) integer
