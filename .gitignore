@@ -1,1 +1,4 @@
 /.direnv/
+CMakeCache.txt
+CMakeFiles
+*.cmake
