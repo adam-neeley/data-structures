@@ -1,22 +1,14 @@
-// CS 211 Fall 2024 – Week 03 Lab
-// Adam Neeley
-//---------------------------------------------------------------
-// File: main.cpp
-
-// #include "Bag.h"
+#include <A.h>
 #include <cstdlib>
 #include <iostream>
-using namespace std;
+#include <string>
 
 int main() {
+  A *a = new A();
 
-  string lines[] = {"Lab 3", "Adam", "9/9/24"};
+  std::string text = a->main();
 
-  cout << boolalpha;
-  cout << endl;
-  for (const string line : lines)
-    cout << line << endl;
-  cout << endl;
-
-  return EXIT_SUCCESS;
+  std::cout << text << std::endl;
+  std::cout << "" << '\n';
+  return 0;
 }

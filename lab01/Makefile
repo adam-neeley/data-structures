@@ -57,10 +57,10 @@ RM = /nix/store/28s979fhz8d6h1rny3n5zh1ybmby6kjz-cmake-3.29.2/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/adam/school/2024-fall/data-structures/lab03
+CMAKE_SOURCE_DIR = /home/adam/school/humboldt/data-structures/lab01
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/adam/school/2024-fall/data-structures/lab03
+CMAKE_BINARY_DIR = /home/adam/school/humboldt/data-structures/lab01
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -87,9 +87,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/adam/school/2024-fall/data-structures/lab03/CMakeFiles /home/adam/school/2024-fall/data-structures/lab03//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/adam/school/humboldt/data-structures/lab01/CMakeFiles /home/adam/school/humboldt/data-structures/lab01//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/adam/school/2024-fall/data-structures/lab03/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/adam/school/humboldt/data-structures/lab01/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
