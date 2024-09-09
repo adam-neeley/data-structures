@@ -9,3 +9,5 @@ project(Lab CXX)
 add_library(project_options INTERFACE )
 
 add_subdirectory(src)
+
+add_custom_target(run make all COMMAND ./bin/Lab)
