@@ -13,26 +13,23 @@
 + stack
 ** eg
 *** stack
-|
-| toPush |   | toPop |
-|        |   |       |
-|        | 3 |       |
-|        | 2 |       |
-|        | 1 |       |
+| push |   | pop |
+| ---- |   | --- |
+|      | 3 |     |
+|      | 2 |     |
+|      | 1 |     |
 *** operations (atomic actions)
 + push
 + pop
 + top
 + empty
 + create
-
-* C++ implementation
-+ classes / abjects
-+ encapsulation
-+ inheritance
-+ polymorphism
-+ pointers
-
+* c++ implementation
++ [ ] classes / objects
++ [ ] encapsulation
++ [ ] inheritance
++ [ ] polymorphism
++ [ ] pointers
 ** object
 + data structure with methods
 + can use class / template class to define ADT

@@ -40,11 +40,11 @@ first item
 * bounds
 ** $O(n)$ greatest upper bound
 *** pf
-+ want $c,N$ s.t.  $3n^2 + 4n - 2 \le cn^2$ $\forall n\ge N$
-+ $\implies 3 + \frac4n - \frac2{ n^2 } \le c$
-+ set $N=1$
-+ $\implies 3 + 4 - 2 = 5 \le c$
-+ choose $c=5$
+want $c,N$ s.t.  $3n^2 + 4n - 2 \le cn^2$ $\forall n\ge N$
+$\implies 3 + \frac4n - \frac2{ n^2 } \le c$
+set $N=1$
+$\implies 3 + \frac4n - \frac2{ n^2 } \le 5$
+choose $c=5$
 *** transitive
 $f(n) = O(g(n))$
 $g(n) = O(h(n))$
@@ -67,12 +67,12 @@ $T(n) = 2\cdot T(\frac{n}2)$
 ** log
 $T(n) = T(n/2) + k$
 $\implies O(\log n)$
-** linearithmic
+** line arithmic
 $T(n)=2*T(n/2)+O(n)$
 $\implies O(n\log n)$
 ** quadratic
-$T(n) = T(n-1) + O(n)$
 $O(n^2)$
+$T(n) = T(n-1) + O(n)$
 ** exponential
 $T(n)=T(n-1)*k$
 $O(k^n)$
