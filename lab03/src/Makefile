@@ -130,30 +130,6 @@ Lab/fast:
 	cd /home/adam/school/humboldt/data-structures/lab03 && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/Lab.dir/build.make src/CMakeFiles/Lab.dir/build
 .PHONY : Lab/fast
 
-A.o: A.cpp.o
-.PHONY : A.o
-
-# target to build an object file
-A.cpp.o:
-	cd /home/adam/school/humboldt/data-structures/lab03 && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/Lab.dir/build.make src/CMakeFiles/Lab.dir/A.cpp.o
-.PHONY : A.cpp.o
-
-A.i: A.cpp.i
-.PHONY : A.i
-
-# target to preprocess a source file
-A.cpp.i:
-	cd /home/adam/school/humboldt/data-structures/lab03 && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/Lab.dir/build.make src/CMakeFiles/Lab.dir/A.cpp.i
-.PHONY : A.cpp.i
-
-A.s: A.cpp.s
-.PHONY : A.s
-
-# target to generate assembly for a file
-A.cpp.s:
-	cd /home/adam/school/humboldt/data-structures/lab03 && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/Lab.dir/build.make src/CMakeFiles/Lab.dir/A.cpp.s
-.PHONY : A.cpp.s
-
 main.o: main.cpp.o
 .PHONY : main.o
 
@@ -178,6 +154,30 @@ main.cpp.s:
 	cd /home/adam/school/humboldt/data-structures/lab03 && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/Lab.dir/build.make src/CMakeFiles/Lab.dir/main.cpp.s
 .PHONY : main.cpp.s
 
+week03Lab.o: week03Lab.cpp.o
+.PHONY : week03Lab.o
+
+# target to build an object file
+week03Lab.cpp.o:
+	cd /home/adam/school/humboldt/data-structures/lab03 && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/Lab.dir/build.make src/CMakeFiles/Lab.dir/week03Lab.cpp.o
+.PHONY : week03Lab.cpp.o
+
+week03Lab.i: week03Lab.cpp.i
+.PHONY : week03Lab.i
+
+# target to preprocess a source file
+week03Lab.cpp.i:
+	cd /home/adam/school/humboldt/data-structures/lab03 && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/Lab.dir/build.make src/CMakeFiles/Lab.dir/week03Lab.cpp.i
+.PHONY : week03Lab.cpp.i
+
+week03Lab.s: week03Lab.cpp.s
+.PHONY : week03Lab.s
+
+# target to generate assembly for a file
+week03Lab.cpp.s:
+	cd /home/adam/school/humboldt/data-structures/lab03 && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/Lab.dir/build.make src/CMakeFiles/Lab.dir/week03Lab.cpp.s
+.PHONY : week03Lab.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -187,12 +187,12 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... Lab"
-	@echo "... A.o"
-	@echo "... A.i"
-	@echo "... A.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
+	@echo "... week03Lab.o"
+	@echo "... week03Lab.i"
+	@echo "... week03Lab.s"
 .PHONY : help
 
 
