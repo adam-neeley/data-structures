@@ -3,6 +3,7 @@
 // 9/12/24
 
 #include "Node.h"
+#include "listPlay.h"
 #include <cstdlib>
 #include <iostream>
 #include <string>
@@ -88,5 +89,10 @@ int main() {
   }
 
   cout << endl;
+
+  /* listPlay stuff */
+
+  listPlay();
+
   return EXIT_SUCCESS;
 }

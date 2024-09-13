@@ -19,31 +19,50 @@ void listPlay() {
   while (true) {
     std::cout << "Enter a numeric value (-1 to finish): ";
     std::cin >> value;
+
     if (value == -1)
-      break;
+      break; // -1 escapes loop
 
-    Node *nextNode;
-    nextNode = new Node(value);
+    Node *nextNodePtr;
+    nextNodePtr = new Node(value); // create next node
 
-    if (head == NULL) {
-      head = nextNode;
-      nodePtr = head;
-    } else {
-      nodePtr->setLink(nextNode);
-      nodePtr = nextNode;
-    }
+    if (head == NULL)
+      head = nextNodePtr;
+    else
+      nodePtr->setLink(nextNodePtr);
+
+    nodePtr = nextNodePtr;
   }
+
+  //
 
   std::cout << "Numbers entered:";
 
-  while (head != NULL) {
-    std::cout << " " << head->getData();
-    head = head->getLink();
-  }
-  std::cout << std::endl;
-};
+  double sum = 0;
+  double product = 1;
 
-int main() {
-  listPlay();
-  return 0;
-}
+  nodePtr = head;
+  while (nodePtr != NULL) {
+    double data = nodePtr->getData();
+    sum += data;
+    product *= data;
+    std::cout << " " << nodePtr->getData();
+    nodePtr = nodePtr->getLink();
+  }
+
+  if (head == NULL)
+    return;
+
+  std::cout << std::endl;
+  std::cout << "Sum: " << sum << std::endl;
+  std::cout << "Product: " << product << std::endl;
+
+  // delete list
+  nodePtr = head;
+  while (nodePtr != NULL) {
+    Node *nextPtr = nodePtr->getLink();
+    std::cout << "Deleting: " << nodePtr->getData() << std::endl;
+    delete nodePtr;
+    nodePtr = nextPtr;
+  }
+};
