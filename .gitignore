@@ -3,3 +3,4 @@ CMakeCache.txt
 CMakeFiles
 *.cmake
 /lab03/build/
+/tmp/
