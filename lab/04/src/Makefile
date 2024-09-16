@@ -57,10 +57,10 @@ RM = /nix/store/28s979fhz8d6h1rny3n5zh1ybmby6kjz-cmake-3.29.2/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/adam/school/humboldt/data-structures/lab/03
+CMAKE_SOURCE_DIR = /home/adam/school/humboldt/data-structures/lab/04
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/adam/school/humboldt/data-structures/lab/03
+CMAKE_BINARY_DIR = /home/adam/school/humboldt/data-structures/lab/04
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -87,14 +87,14 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/adam/school/humboldt/data-structures/lab/03 && $(CMAKE_COMMAND) -E cmake_progress_start /home/adam/school/humboldt/data-structures/lab/03/CMakeFiles /home/adam/school/humboldt/data-structures/lab/03/src//CMakeFiles/progress.marks
-	cd /home/adam/school/humboldt/data-structures/lab/03 && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/adam/school/humboldt/data-structures/lab/03/CMakeFiles 0
+	cd /home/adam/school/humboldt/data-structures/lab/04 && $(CMAKE_COMMAND) -E cmake_progress_start /home/adam/school/humboldt/data-structures/lab/04/CMakeFiles /home/adam/school/humboldt/data-structures/lab/04/src//CMakeFiles/progress.marks
+	cd /home/adam/school/humboldt/data-structures/lab/04 && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/adam/school/humboldt/data-structures/lab/04/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/adam/school/humboldt/data-structures/lab/03 && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/clean
+	cd /home/adam/school/humboldt/data-structures/lab/04 && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/clean
 .PHONY : clean
 
 # The main clean target
@@ -103,22 +103,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/adam/school/humboldt/data-structures/lab/03 && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/preinstall
+	cd /home/adam/school/humboldt/data-structures/lab/04 && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/adam/school/humboldt/data-structures/lab/03 && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/preinstall
+	cd /home/adam/school/humboldt/data-structures/lab/04 && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/adam/school/humboldt/data-structures/lab/03 && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/adam/school/humboldt/data-structures/lab/04 && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 src/CMakeFiles/Lab.dir/rule:
-	cd /home/adam/school/humboldt/data-structures/lab/03 && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/CMakeFiles/Lab.dir/rule
+	cd /home/adam/school/humboldt/data-structures/lab/04 && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/CMakeFiles/Lab.dir/rule
 .PHONY : src/CMakeFiles/Lab.dir/rule
 
 # Convenience name for target.
@@ -127,56 +127,56 @@ Lab: src/CMakeFiles/Lab.dir/rule
 
 # fast build rule for target.
 Lab/fast:
-	cd /home/adam/school/humboldt/data-structures/lab/03 && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/Lab.dir/build.make src/CMakeFiles/Lab.dir/build
+	cd /home/adam/school/humboldt/data-structures/lab/04 && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/Lab.dir/build.make src/CMakeFiles/Lab.dir/build
 .PHONY : Lab/fast
 
-main.o: main.cpp.o
-.PHONY : main.o
+lab04Test.o: lab04Test.cpp.o
+.PHONY : lab04Test.o
 
 # target to build an object file
-main.cpp.o:
-	cd /home/adam/school/humboldt/data-structures/lab/03 && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/Lab.dir/build.make src/CMakeFiles/Lab.dir/main.cpp.o
-.PHONY : main.cpp.o
+lab04Test.cpp.o:
+	cd /home/adam/school/humboldt/data-structures/lab/04 && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/Lab.dir/build.make src/CMakeFiles/Lab.dir/lab04Test.cpp.o
+.PHONY : lab04Test.cpp.o
 
-main.i: main.cpp.i
-.PHONY : main.i
+lab04Test.i: lab04Test.cpp.i
+.PHONY : lab04Test.i
 
 # target to preprocess a source file
-main.cpp.i:
-	cd /home/adam/school/humboldt/data-structures/lab/03 && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/Lab.dir/build.make src/CMakeFiles/Lab.dir/main.cpp.i
-.PHONY : main.cpp.i
+lab04Test.cpp.i:
+	cd /home/adam/school/humboldt/data-structures/lab/04 && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/Lab.dir/build.make src/CMakeFiles/Lab.dir/lab04Test.cpp.i
+.PHONY : lab04Test.cpp.i
 
-main.s: main.cpp.s
-.PHONY : main.s
+lab04Test.s: lab04Test.cpp.s
+.PHONY : lab04Test.s
 
 # target to generate assembly for a file
-main.cpp.s:
-	cd /home/adam/school/humboldt/data-structures/lab/03 && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/Lab.dir/build.make src/CMakeFiles/Lab.dir/main.cpp.s
-.PHONY : main.cpp.s
+lab04Test.cpp.s:
+	cd /home/adam/school/humboldt/data-structures/lab/04 && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/Lab.dir/build.make src/CMakeFiles/Lab.dir/lab04Test.cpp.s
+.PHONY : lab04Test.cpp.s
 
-week03Lab.o: week03Lab.cpp.o
-.PHONY : week03Lab.o
+week04Lab.o: week04Lab.cpp.o
+.PHONY : week04Lab.o
 
 # target to build an object file
-week03Lab.cpp.o:
-	cd /home/adam/school/humboldt/data-structures/lab/03 && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/Lab.dir/build.make src/CMakeFiles/Lab.dir/week03Lab.cpp.o
-.PHONY : week03Lab.cpp.o
+week04Lab.cpp.o:
+	cd /home/adam/school/humboldt/data-structures/lab/04 && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/Lab.dir/build.make src/CMakeFiles/Lab.dir/week04Lab.cpp.o
+.PHONY : week04Lab.cpp.o
 
-week03Lab.i: week03Lab.cpp.i
-.PHONY : week03Lab.i
+week04Lab.i: week04Lab.cpp.i
+.PHONY : week04Lab.i
 
 # target to preprocess a source file
-week03Lab.cpp.i:
-	cd /home/adam/school/humboldt/data-structures/lab/03 && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/Lab.dir/build.make src/CMakeFiles/Lab.dir/week03Lab.cpp.i
-.PHONY : week03Lab.cpp.i
+week04Lab.cpp.i:
+	cd /home/adam/school/humboldt/data-structures/lab/04 && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/Lab.dir/build.make src/CMakeFiles/Lab.dir/week04Lab.cpp.i
+.PHONY : week04Lab.cpp.i
 
-week03Lab.s: week03Lab.cpp.s
-.PHONY : week03Lab.s
+week04Lab.s: week04Lab.cpp.s
+.PHONY : week04Lab.s
 
 # target to generate assembly for a file
-week03Lab.cpp.s:
-	cd /home/adam/school/humboldt/data-structures/lab/03 && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/Lab.dir/build.make src/CMakeFiles/Lab.dir/week03Lab.cpp.s
-.PHONY : week03Lab.cpp.s
+week04Lab.cpp.s:
+	cd /home/adam/school/humboldt/data-structures/lab/04 && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/Lab.dir/build.make src/CMakeFiles/Lab.dir/week04Lab.cpp.s
+.PHONY : week04Lab.cpp.s
 
 # Help Target
 help:
@@ -187,12 +187,12 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... Lab"
-	@echo "... main.o"
-	@echo "... main.i"
-	@echo "... main.s"
-	@echo "... week03Lab.o"
-	@echo "... week03Lab.i"
-	@echo "... week03Lab.s"
+	@echo "... lab04Test.o"
+	@echo "... lab04Test.i"
+	@echo "... lab04Test.s"
+	@echo "... week04Lab.o"
+	@echo "... week04Lab.i"
+	@echo "... week04Lab.s"
 .PHONY : help
 
 
@@ -204,6 +204,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/adam/school/humboldt/data-structures/lab/03 && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/adam/school/humboldt/data-structures/lab/04 && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 
