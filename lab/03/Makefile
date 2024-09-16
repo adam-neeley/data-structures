@@ -57,10 +57,10 @@ RM = /nix/store/28s979fhz8d6h1rny3n5zh1ybmby6kjz-cmake-3.29.2/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/adam/school/humboldt/data-structures/lab03
+CMAKE_SOURCE_DIR = /home/adam/school/humboldt/data-structures/lab/03
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/adam/school/humboldt/data-structures/lab03
+CMAKE_BINARY_DIR = /home/adam/school/humboldt/data-structures/lab/03
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -87,14 +87,14 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/adam/school/humboldt/data-structures/lab03 && $(CMAKE_COMMAND) -E cmake_progress_start /home/adam/school/humboldt/data-structures/lab03/CMakeFiles /home/adam/school/humboldt/data-structures/lab03/src//CMakeFiles/progress.marks
-	cd /home/adam/school/humboldt/data-structures/lab03 && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/adam/school/humboldt/data-structures/lab03/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/adam/school/humboldt/data-structures/lab/03/CMakeFiles /home/adam/school/humboldt/data-structures/lab/03//CMakeFiles/progress.marks
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/adam/school/humboldt/data-structures/lab/03/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/adam/school/humboldt/data-structures/lab03 && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/clean
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 clean
 .PHONY : clean
 
 # The main clean target
@@ -103,80 +103,44 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/adam/school/humboldt/data-structures/lab03 && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/preinstall
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/adam/school/humboldt/data-structures/lab03 && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/preinstall
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/adam/school/humboldt/data-structures/lab03 && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	$(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
-# Convenience name for target.
-src/CMakeFiles/Lab.dir/rule:
-	cd /home/adam/school/humboldt/data-structures/lab03 && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 src/CMakeFiles/Lab.dir/rule
-.PHONY : src/CMakeFiles/Lab.dir/rule
+#=============================================================================
+# Target rules for targets named run
 
-# Convenience name for target.
-Lab: src/CMakeFiles/Lab.dir/rule
+# Build rule for target.
+run: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 run
+.PHONY : run
+
+# fast build rule for target.
+run/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/run.dir/build.make CMakeFiles/run.dir/build
+.PHONY : run/fast
+
+#=============================================================================
+# Target rules for targets named Lab
+
+# Build rule for target.
+Lab: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Lab
 .PHONY : Lab
 
 # fast build rule for target.
 Lab/fast:
-	cd /home/adam/school/humboldt/data-structures/lab03 && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/Lab.dir/build.make src/CMakeFiles/Lab.dir/build
+	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/Lab.dir/build.make src/CMakeFiles/Lab.dir/build
 .PHONY : Lab/fast
-
-main.o: main.cpp.o
-.PHONY : main.o
-
-# target to build an object file
-main.cpp.o:
-	cd /home/adam/school/humboldt/data-structures/lab03 && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/Lab.dir/build.make src/CMakeFiles/Lab.dir/main.cpp.o
-.PHONY : main.cpp.o
-
-main.i: main.cpp.i
-.PHONY : main.i
-
-# target to preprocess a source file
-main.cpp.i:
-	cd /home/adam/school/humboldt/data-structures/lab03 && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/Lab.dir/build.make src/CMakeFiles/Lab.dir/main.cpp.i
-.PHONY : main.cpp.i
-
-main.s: main.cpp.s
-.PHONY : main.s
-
-# target to generate assembly for a file
-main.cpp.s:
-	cd /home/adam/school/humboldt/data-structures/lab03 && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/Lab.dir/build.make src/CMakeFiles/Lab.dir/main.cpp.s
-.PHONY : main.cpp.s
-
-week03Lab.o: week03Lab.cpp.o
-.PHONY : week03Lab.o
-
-# target to build an object file
-week03Lab.cpp.o:
-	cd /home/adam/school/humboldt/data-structures/lab03 && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/Lab.dir/build.make src/CMakeFiles/Lab.dir/week03Lab.cpp.o
-.PHONY : week03Lab.cpp.o
-
-week03Lab.i: week03Lab.cpp.i
-.PHONY : week03Lab.i
-
-# target to preprocess a source file
-week03Lab.cpp.i:
-	cd /home/adam/school/humboldt/data-structures/lab03 && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/Lab.dir/build.make src/CMakeFiles/Lab.dir/week03Lab.cpp.i
-.PHONY : week03Lab.cpp.i
-
-week03Lab.s: week03Lab.cpp.s
-.PHONY : week03Lab.s
-
-# target to generate assembly for a file
-week03Lab.cpp.s:
-	cd /home/adam/school/humboldt/data-structures/lab03 && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/Lab.dir/build.make src/CMakeFiles/Lab.dir/week03Lab.cpp.s
-.PHONY : week03Lab.cpp.s
 
 # Help Target
 help:
@@ -186,13 +150,8 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
+	@echo "... run"
 	@echo "... Lab"
-	@echo "... main.o"
-	@echo "... main.i"
-	@echo "... main.s"
-	@echo "... week03Lab.o"
-	@echo "... week03Lab.i"
-	@echo "... week03Lab.s"
 .PHONY : help
 
 
@@ -204,6 +163,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/adam/school/humboldt/data-structures/lab03 && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	$(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 
