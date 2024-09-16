@@ -1,5 +1,5 @@
 {
-  description = "A Nix-flake-based C/C++ development environment";
+  description = "C/C++ development environment";
 
   inputs.nixpkgs.url = "nixpkgs/nixos-24.05";
 
@@ -12,16 +12,9 @@
         (system: f { pkgs = import nixpkgs { inherit system; }; });
     in {
       devShells = forEachSupportedSystem ({ pkgs }: {
-        default = pkgs.mkShell.override {
-          # Override stdenv in order to change compiler:
-          # stdenv = pkgs.clangStdenv;
-        } {
+        default = pkgs.mkShell {
           packages = with pkgs;
             [
-              # binutils
-              # gcc
-              # stdenv
-              # glibc
               clang-tools
               cmake
               codespell
