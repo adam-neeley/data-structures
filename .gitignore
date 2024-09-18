@@ -1,7 +1,7 @@
+*.cmake
 /.direnv/
+/build/
+/tmp/
 CMakeCache.txt
 CMakeFiles
-*.cmake
-/lab03/build/
-/tmp/
 result
