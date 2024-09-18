@@ -16,7 +16,6 @@
       buildInputs = with pkgs;
         [
           clang-tools
-          cmake
           codespell
           conan
           cppcheck
@@ -48,7 +47,7 @@
           inherit buildInputs;
           installPhase = ''
             mkdir -p $out/bin
-            cp Assignment $out/bin/${name}
+            cp main $out/bin/${name}
           '';
           meta.mainProgram = name;
         };
@@ -60,7 +59,7 @@
           inherit buildInputs;
           installPhase = ''
             mkdir -p $out/bin
-            cp Zylab $out/bin/${name}
+            cp main $out/bin/${name}
           '';
           meta.mainProgram = name;
         };

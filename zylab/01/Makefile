@@ -2,4 +2,4 @@ SHELL:=/usr/bin/env bash -O globstar
 OUT=main
 
 install:
-	$(CXX) *.cpp -o $(OUT)
+	$(CXX) *.cpp *.h -o $(OUT)
