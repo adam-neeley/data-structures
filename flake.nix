@@ -1,23 +1,19 @@
 {
-  description = "C/C++ development environment";
+  description = "Data Structures (C++)";
 
   inputs.nixpkgs.url = "nixpkgs/nixos-24.05";
+  inputs.nix-lib-monadam.url = "git+file:/home/adam/code/nix-lib-monadam";
+  inputs.nix-lib-monadam.inputs.nixpkgs.follows = "nixpkgs";
 
-  outputs = { self, nixpkgs, }:
+  outputs = { self, nixpkgs, nix-lib-monadam }:
     let
-      supportedSystems = [
-        "x86_64-linux"
-        # "aarch64-linux"
-        # "x86_64-darwin"
-        # "aarch64-darwin"
-      ];
-      dirs = [ ./lab ./zylab ./assignment ];
       system = "x86_64-linux";
+      lib = nix-lib-monadam.lib;
       pkgs = import nixpkgs { inherit system; };
-      lib = import ./lib pkgs;
-      labs = pkgs.lib.attrsets.mapAttrsToList (k: v: k) (lib.getDir ./lab);
-    in {
-      packages.${system} = pkgs.lib.attrsets.mergeAttrsList (map (lab: {
+      labs = lib.getDirs ./lab;
+      zylabs = lib.getDirs ./zylab;
+      assignments = lib.getDirs ./assignment;
+      labPackages = pkgs.lib.attrsets.mergeAttrsList (map (lab: {
         "lab-${lab}" = pkgs.stdenv.mkDerivation rec {
           name = "lab-${lab}";
           src = ./lab/${lab};
@@ -28,6 +24,30 @@
           meta.mainProgram = name;
         };
       }) labs);
+      assignmentPackages = pkgs.lib.attrsets.mergeAttrsList (map (assignment: {
+        "assignment-${assignment}" = pkgs.stdenv.mkDerivation rec {
+          name = "assignment-${assignment}";
+          src = ./assignment/${assignment};
+          installPhase = ''
+            mkdir -p $out/bin
+            cp Assignment $out/bin/${name}
+          '';
+          meta.mainProgram = name;
+        };
+      }) assignments);
+      zylabPackages = pkgs.lib.attrsets.mergeAttrsList (map (zylab: {
+        "zylab-${zylab}" = pkgs.stdenv.mkDerivation rec {
+          name = "zylab-${zylab}";
+          src = ./zylab/${zylab};
+          installPhase = ''
+            mkdir -p $out/bin
+            cp Zylab $out/bin/${name}
+          '';
+          meta.mainProgram = name;
+        };
+      }) zylabs);
+    in {
+      packages.${system} = labPackages // zylabPackages // assignmentPackages;
 
       devShells.${system}.default = pkgs.mkShell {
         packages = with pkgs;

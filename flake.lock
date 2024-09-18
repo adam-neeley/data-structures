@@ -1,12 +1,31 @@
 {
   "nodes": {
+    "nix-lib-monadam": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "dirtyRev": "a556bde63e3792e583e45aa9b5281b8aed1f417c-dirty",
+        "dirtyShortRev": "a556bde-dirty",
+        "lastModified": 1726678874,
+        "narHash": "sha256-jIJRqEVT8XImGtjrk0rCO6eobaj3BLTigTqJgAEb2do=",
+        "type": "git",
+        "url": "file:/home/adam/code/nix-lib-monadam"
+      },
+      "original": {
+        "type": "git",
+        "url": "file:/home/adam/code/nix-lib-monadam"
+      }
+    },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1725001927,
-        "narHash": "sha256-eV+63gK0Mp7ygCR0Oy4yIYSNcum2VQwnZamHxYTNi+M=",
+        "lastModified": 1726447378,
+        "narHash": "sha256-2yV8nmYE1p9lfmLHhOCbYwQC/W8WYfGQABoGzJOb1JQ=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "6e99f2a27d600612004fbd2c3282d614bfee6421",
+        "rev": "086b448a5d54fd117f4dc2dee55c9f0ff461bdc1",
         "type": "github"
       },
       "original": {
@@ -17,6 +36,7 @@
     },
     "root": {
       "inputs": {
+        "nix-lib-monadam": "nix-lib-monadam",
         "nixpkgs": "nixpkgs"
       }
     }
