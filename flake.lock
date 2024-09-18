@@ -7,16 +7,17 @@
         ]
       },
       "locked": {
-        "dirtyRev": "576786770b5fd1c1ddec86346286324a054b8b8d-dirty",
-        "dirtyShortRev": "5767867-dirty",
-        "lastModified": 1726689306,
-        "narHash": "sha256-R1sO0egwHrBvl08MMclE+cRkh/csuTasejgXRFEOG8Y=",
-        "type": "git",
-        "url": "file:/home/adam/code/nix-lib-monadam"
+        "lastModified": 1726692445,
+        "narHash": "sha256-0fTU6meeqfFPcP+cqAmsIWFIn0t/po867AvW3uuBAdY=",
+        "owner": "adam-neeley",
+        "repo": "nix-lib-monadam",
+        "rev": "665524f0962c43228970f0dc39ffe96b28da9ab9",
+        "type": "github"
       },
       "original": {
-        "type": "git",
-        "url": "file:/home/adam/code/nix-lib-monadam"
+        "owner": "adam-neeley",
+        "repo": "nix-lib-monadam",
+        "type": "github"
       }
     },
     "nixpkgs": {
