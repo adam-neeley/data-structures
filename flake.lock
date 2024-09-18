@@ -7,10 +7,10 @@
         ]
       },
       "locked": {
-        "dirtyRev": "a556bde63e3792e583e45aa9b5281b8aed1f417c-dirty",
-        "dirtyShortRev": "a556bde-dirty",
-        "lastModified": 1726678874,
-        "narHash": "sha256-jIJRqEVT8XImGtjrk0rCO6eobaj3BLTigTqJgAEb2do=",
+        "dirtyRev": "576786770b5fd1c1ddec86346286324a054b8b8d-dirty",
+        "dirtyShortRev": "5767867-dirty",
+        "lastModified": 1726689306,
+        "narHash": "sha256-R1sO0egwHrBvl08MMclE+cRkh/csuTasejgXRFEOG8Y=",
         "type": "git",
         "url": "file:/home/adam/code/nix-lib-monadam"
       },
