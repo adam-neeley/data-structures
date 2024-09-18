@@ -1,2 +1,20 @@
 #+title: Week4
 * sorting algorithms
+| name      |   | complexity      |
+|-----------+---+-----------------|
+| bubble    |   | O(n^2)          |
+| selection |   | O(n^2)          |
+| insertion |   | O(n^2)          |
+| shellsort |   | O(nlogn) O(n^2) |
+|-----------+---+-----------------|
+
+** bubble
+1. compare to nearest
+2. swap when out order
++ n elements => n sweeps
++ add `bool didSwap` for more efficiency
+** selection
+1. swap with smallest remaining value
+** insertion
+** shellsort
+comparison sort

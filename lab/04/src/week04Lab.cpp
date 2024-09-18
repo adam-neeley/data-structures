@@ -2,12 +2,6 @@
 // Adam Neeley
 // Mikey Thoreson
 
-#include <cmath>
-#include <cstdint>
-#include <cstdlib>
-#include <iostream>
-#include <string>
-
 using namespace std;
 
 // euclideanGCD: unsigned long long int, unsigned long long int
