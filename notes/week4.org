@@ -1,12 +1,16 @@
-#+title: Week4
+#+title: Week 4
 * sorting algorithms
-| name      |   | complexity      |
-|-----------+---+-----------------|
-| bubble    |   | O(n^2)          |
-| selection |   | O(n^2)          |
-| insertion |   | O(n^2)          |
-| shellsort |   | O(nlogn) O(n^2) |
-|-----------+---+-----------------|
+|------------+---+-----------------------------|
+| name       |   | complexity                  |
+|------------+---+-----------------------------|
+| bubble     |   | O(n^2)                      |
+| selection  |   | O(n^2)                      |
+| insertion  |   | O(n^2)                      |
+| shellsort  |   | between O(nlogn) O(n^2)     |
+| merge sort |   | O(nlogn)                    |
+| quicksort  |   | O(nlogn)                    |
+| radix sort |   | O(n) <- not really O(nlogn) |
+|------------+---+-----------------------------|
 
 ** bubble
 1. compare to nearest
@@ -18,3 +22,18 @@
 ** insertion
 ** shellsort
 comparison sort
+** merge sort
+1. sort left half
+2. sort right half
+3. merge both
+takes log_2(n) steps
+each step takes n steps
+so O(nlogn)
+** quicksort
+1. choose pivot
+2. partition list
+3. quicksort left
+3. quicksort right
+|    |    |    | p1 |    |    |
+|    | p2 |    | p1 | p2 |    |
+| p3 | p2 | p3 | p1 | p2 | p3 |
