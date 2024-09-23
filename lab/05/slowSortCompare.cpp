@@ -1,3 +1,6 @@
+// Adam Neeley
+// Mikey Thoreson
+// Richard Bennett
 // CS 211 Fall 2024 - Week 05 Lab
 // Comparing "slow" sorting algorithms
 // Bubble Sort, Selection Sort, Insertion Sort
