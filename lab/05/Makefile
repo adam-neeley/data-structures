@@ -1,5 +1,5 @@
 SHELL:=/usr/bin/env bash -O globstar
-OUT=main
+OUT=Lab
 
 install:
 	$(CXX) *.cpp -o $(OUT)
