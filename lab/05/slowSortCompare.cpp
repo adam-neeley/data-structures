@@ -17,6 +17,11 @@ using namespace std;
 long int comps = 0;
 long int moves = 0;
 
+void resetState() {
+  comps = 0;
+  moves = 0;
+}
+
 //---------------------------------------------------------------
 // void swap(int&, int&)
 // Expects two integers using Pass by Reference
@@ -24,12 +29,14 @@ long int moves = 0;
 // Side Effect is the integer values are swapped
 //---------------------------------------------------------------
 
-void swap(int& leftInt, int& rightInt) {
-    int temp;
+void swap(int &leftInt, int &rightInt) {
+  int temp;
 
-    temp = rightInt;
-    rightInt = leftInt;
-    leftInt = temp;
+  moves += 3;
+
+  temp = rightInt;
+  rightInt = leftInt;
+  leftInt = temp;
 }
 
 //---------------------------------------------------------------
@@ -40,13 +47,13 @@ void swap(int& leftInt, int& rightInt) {
 //---------------------------------------------------------------
 
 bool sortConfirm(int array[], int size) {
-    bool isSorted = true;
+  bool isSorted = true;
 
-    for (int i=1; i<=size-1; i++)
-        if (array[i-1] > array[i])
-            isSorted = false;
+  for (int i = 1; i <= size - 1; i++)
+    if (array[i - 1] > array[i])
+      isSorted = false;
 
-    return isSorted;
+  return isSorted;
 }
 
 //---------------------------------------------------------------
@@ -58,14 +65,13 @@ bool sortConfirm(int array[], int size) {
 //---------------------------------------------------------------
 
 void sortReport(int array[], int size, string sortType) {
-    // FOR DEBUGGING PURPOSES ONLY
-    if (!sortConfirm(array, size)) {
-        cout << "*** " << sortType << " SORT ERROR ***" << endl;
-    }
+  // FOR DEBUGGING PURPOSES ONLY
+  if (!sortConfirm(array, size)) {
+    cout << "*** " << sortType << " SORT ERROR ***" << endl;
+  }
 
-    cout << sortType << " SORT REPORT: "
-         << comps << " comparisons, " << moves << " moves" << endl;
-
+  cout << sortType << " SORT REPORT: " << comps << " comparisons, " << moves
+       << " moves" << endl;
 }
 
 //---------------------------------------------------------------
@@ -77,21 +83,26 @@ void sortReport(int array[], int size, string sortType) {
 //---------------------------------------------------------------
 
 void bubbleSort(int data[], int size) {
-    bool hasSwappedThisPass;
+  resetState();
+  bool hasSwappedThisPass;
 
-    for (int i=size; i>0; i--) {
-        hasSwappedThisPass = false;
-        for (int j=0; j<i-1; j++) {
-            if (data[j] > data[j + 1]) {
-                swap(data[j], data[j + 1]);
-                hasSwappedThisPass = true;
-            }
-        }
-        if (!hasSwappedThisPass) break;
+  for (int i = size; i > 0; i--) {
+    comps++;
+    hasSwappedThisPass = false;
+    for (int j = 0; j < i - 1; j++) {
+      comps++;
+      if (data[j] > data[j + 1]) {
+        comps++;
+        swap(data[j], data[j + 1]);
+        hasSwappedThisPass = true;
+      }
     }
+    if (!hasSwappedThisPass)
+      break;
+  }
 
-    // Data is now sorted - print stats to screen
-    sortReport(data, size, "BUBBLE   ");
+  // Data is now sorted - print stats to screen
+  sortReport(data, size, "BUBBLE   ");
 }
 
 //---------------------------------------------------------------
@@ -103,20 +114,27 @@ void bubbleSort(int data[], int size) {
 //---------------------------------------------------------------
 
 void selectionSort(int data[], int size) {
-    int indexOfLeastValueThisPass = -1;
+  resetState();
+  int indexOfLeastValueThisPass = -1;
 
-    for (int i=0; i<size; i++) {
-        indexOfLeastValueThisPass = i;
-        for (int j=i+1; j<size; j++) {
-            if (data[j] < data[indexOfLeastValueThisPass])
-                indexOfLeastValueThisPass = j;
-        }
-        if (indexOfLeastValueThisPass != i)
-            swap(data[indexOfLeastValueThisPass], data[i]);
+  for (int i = 0; i < size; i++) {
+    comps++;
+    indexOfLeastValueThisPass = i;
+    for (int j = i + 1; j < size; j++) {
+      comps++;
+      if (data[j] < data[indexOfLeastValueThisPass]) {
+        comps++;
+        indexOfLeastValueThisPass = j;
+      }
     }
+    if (indexOfLeastValueThisPass != i) {
+      comps++;
+      swap(data[indexOfLeastValueThisPass], data[i]);
+    }
+  }
 
-    // Data is now sorted - print stats to screen
-    sortReport(data, size, "SELECTION");
+  // Data is now sorted - print stats to screen
+  sortReport(data, size, "SELECTION");
 }
 
 //---------------------------------------------------------------
@@ -128,16 +146,20 @@ void selectionSort(int data[], int size) {
 //---------------------------------------------------------------
 
 void insertionSort(int data[], int size) {
+  resetState();
 
-    for (int i=0; i<size-1; i++) {
-        for (int j=i+1; j>0; j--) {
-            if (data[j] < data[j - 1])
-                swap(data[j], data[j - 1]);
-            else break;
-        }
+  for (int i = 0; i < size - 1; i++) {
+    comps++;
+    for (int j = i + 1; j > 0; j--) {
+      comps++;
+      if (data[j] < data[j - 1]) {
+        comps++;
+        swap(data[j], data[j - 1]);
+      } else
+        break;
     }
+  }
 
-    // Data is now sorted - print stats to screen
-    sortReport(data, size, "INSERTION");
+  // Data is now sorted - print stats to screen
+  sortReport(data, size, "INSERTION");
 }
-
