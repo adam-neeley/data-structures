@@ -1,0 +1,13 @@
+#+title: Schedule
+* thu 9/26
+* monday 9/30
+fast sorts
+* tue
+hash tables
+* thu 10/3
+review exam
+* mon 10/7
+* tue 10/8
+exam 1
+* sun 10/13
+assignment #2
