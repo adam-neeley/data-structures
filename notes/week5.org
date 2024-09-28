@@ -44,4 +44,21 @@ int main () {
 *** Doubly Linked
 | 0 | <-> | 1 | <-> | 2 | <-> | 3 | <-> | ... |
 * Stacks
+| 👨 |
+| 🐶 |
+| 🐸 |
+| 😜 |
+|-----|
++ one-dimensional
++ LIFO: last in first out
+** primitive/atomic actions
++ push: payload
++ pop: payload -> void
++ is_empty: bool
 * Queues
+** fifo
+|----------+---+---+---+---+---+---+---+----------|
+| back     |   |   |   |   |   |   |   | front    |
+|----------+---+---+---+---+---+---+---+----------|
+| ^ insert |   |   |   |   |   |   |   | ^ remove |
+|----------+---+---+---+---+---+---+---+----------|
