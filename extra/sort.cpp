@@ -40,7 +40,52 @@ void insertion_sort(int *arr, int len) {
 
 void shell_sort(int *arr, int len) { return; }
 
-void merge_sort(int *arr, int len) { return; }
+void merge(int *arr, int left, int mid, int right) {
+  int len = right - left + 1;
+  int *merge_arr = new int[len];
+  int merge_i = 0;
+  int merge_left = left;
+  int merge_right = mid + 1;
+
+  while (merge_left <= mid && merge_right <= right) {
+    if (arr[merge_left] <= arr[merge_right]) {
+      merge_arr[merge_i] = arr[merge_left];
+      merge_left++;
+    } else {
+      merge_arr[merge_i] = arr[merge_right];
+      merge_right++;
+    }
+    merge_i++;
+  }
+
+  while (merge_left <= mid) {
+    merge_arr[merge_i] = arr[merge_left];
+    merge_left++;
+    merge_i++;
+  }
+
+  while (merge_right <= right) {
+    merge_arr[merge_i] = arr[merge_right];
+    merge_right++;
+    merge_i++;
+  }
+
+  for (merge_i = 0; merge_i < len; merge_i++)
+    arr[left + merge_i] = merge_arr[merge_i];
+
+  delete[] merge_arr;
+}
+
+void merge_sort_rec(int *arr, int left, int right) {
+  if (left >= right)
+    return;
+  int mid = (left + right) / 2;
+  merge_sort_rec(arr, left, mid);
+  merge_sort_rec(arr, mid + 1, right);
+  merge(arr, left, mid, right);
+}
+
+void merge_sort(int *arr, int len) { merge_sort_rec(arr, 0, len - 1); }
 
 void quick_sort(int *arr, int len) { return; }
 
