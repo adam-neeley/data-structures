@@ -38,42 +38,31 @@ void insertion_sort(int *arr, int len) {
         swap(arr[j - 1], arr[j]);
 }
 
-void shell_sort(int *arr, int len) { return; }
+void shell_sort(int *arr, int len) { return; } // TODO
 
 void merge(int *arr, int left, int mid, int right) {
   int len = right - left + 1;
-  int *merge_arr = new int[len];
-  int merge_i = 0;
-  int merge_left = left;
-  int merge_right = mid + 1;
+  int *a = new int[len];
+  int i = 0;
+  int l = left;
+  int r = mid + 1;
 
-  while (merge_left <= mid && merge_right <= right) {
-    if (arr[merge_left] <= arr[merge_right]) {
-      merge_arr[merge_i] = arr[merge_left];
-      merge_left++;
-    } else {
-      merge_arr[merge_i] = arr[merge_right];
-      merge_right++;
-    }
-    merge_i++;
-  }
+  while (l <= mid && r <= right)
+    if (arr[l] <= arr[r])
+      a[i++] = arr[l++];
+    else
+      a[i++] = arr[r++];
 
-  while (merge_left <= mid) {
-    merge_arr[merge_i] = arr[merge_left];
-    merge_left++;
-    merge_i++;
-  }
+  while (l <= mid)
+    a[i++] = arr[l++];
 
-  while (merge_right <= right) {
-    merge_arr[merge_i] = arr[merge_right];
-    merge_right++;
-    merge_i++;
-  }
+  while (r <= right)
+    a[i++] = arr[r++];
 
-  for (merge_i = 0; merge_i < len; merge_i++)
-    arr[left + merge_i] = merge_arr[merge_i];
+  for (i = 0; i < len; i++)
+    arr[left + i] = a[i];
 
-  delete[] merge_arr;
+  delete[] a;
 }
 
 void merge_sort_rec(int *arr, int left, int right) {
@@ -87,9 +76,35 @@ void merge_sort_rec(int *arr, int left, int right) {
 
 void merge_sort(int *arr, int len) { merge_sort_rec(arr, 0, len - 1); }
 
-void quick_sort(int *arr, int len) { return; }
+void quick_sort(int *arr, int len) { return; } // TODO
 
-void radix_sort(int *arr, int len) { return; }
+void radix_sort(int *arr, int len) {
+  int exp = 1;
+  int max = arr[0];
+
+  // find max
+  for (int i = 1; i < len; i++)
+    if (arr[i] > max)
+      max = arr[i];
+
+  while (max / exp > 0) {
+    int *radix_arr = new int[10];
+    for (int i = 0; i < 10; i++) {
+      int num = radix_arr[i];
+      radix_arr[(num / exp) % 10] = num;
+    }
+
+    // for (int i = 0; i < 10; i++) { // TODO
+    //   int num = radix_arr[i];
+    //   radix_arr[(num / exp) % 10] = num;
+    // }
+
+    exp *= 10;
+  }
+
+  return;
+  //
+}
 
 //
 // main
