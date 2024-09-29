@@ -13,17 +13,17 @@ void swap(int &a, int &b) {
 // sort
 //
 
-void bubble_sort(int *arr, int arr_len) {
-  for (int i = 0; i < arr_len - 1; i++)
-    for (int j = i + 1; j < arr_len; j++)
+void bubble_sort(int *arr, int len) {
+  for (int i = 0; i < len - 1; i++)
+    for (int j = i + 1; j < len; j++)
       if (arr[i] > arr[j])
         swap(arr[i], arr[j]);
 }
 
-void selection_sort(int *arr, int arr_len) {
-  for (int i = 0; i < arr_len - 1; i++) {
+void selection_sort(int *arr, int len) {
+  for (int i = 0; i < len - 1; i++) {
     int min = i;
-    for (int j = i + 1; j < arr_len; j++)
+    for (int j = i + 1; j < len; j++)
       if (arr[min] > arr[j])
         min = j;
     if (min != i)
@@ -31,52 +31,79 @@ void selection_sort(int *arr, int arr_len) {
   }
 }
 
-void insertion_sort(int *arr, int arr_len) {
-  for (int i = 1; i < arr_len; i++)
+void insertion_sort(int *arr, int len) {
+  for (int i = 1; i < len; i++)
     for (int j = i; j > 0; j--)
       if (arr[j - 1] > arr[j])
         swap(arr[j - 1], arr[j]);
 }
 
+void shell_sort(int *arr, int len) { return; }
+
+void merge_sort(int *arr, int len) { return; }
+
+void quick_sort(int *arr, int len) { return; }
+
+void radix_sort(int *arr, int len) { return; }
+
 //
 // main
 //
 
-void print_ints(int *ints, int arr_len) {
-  for (int i = 0; i < arr_len; i++)
+void print_ints(int *ints, int len) {
+  for (int i = 0; i < len; i++)
     cout << ints[i] << " ";
   cout << endl;
 }
 
-void process_arr(int *arr, int arr_len) {
+void process_arr(int *arr, int len) {
   cout << endl;
 
   int *a;
 
-  print_ints(arr, arr_len);
+  print_ints(arr, len);
 
   cout << "bubble_sort" << endl;
-  a = new int[arr_len];
-  for (int i = 0; i < arr_len; i++)
+  a = new int[len];
+  for (int i = 0; i < len; i++)
     a[i] = arr[i];
-  bubble_sort(a, arr_len);
-  print_ints(a, arr_len);
+  bubble_sort(a, len);
+  print_ints(a, len);
 
   cout << "selection_sort" << endl;
-  a = new int[arr_len];
-  for (int i = 0; i < arr_len; i++)
+  a = new int[len];
+  for (int i = 0; i < len; i++)
     a[i] = arr[i];
-  // print_ints(a, arr_len);
-  selection_sort(a, arr_len);
-  print_ints(a, arr_len);
+  selection_sort(a, len);
+  print_ints(a, len);
 
   cout << "insertion_sort" << endl;
-  a = new int[arr_len];
-  for (int i = 0; i < arr_len; i++)
+  a = new int[len];
+  for (int i = 0; i < len; i++)
     a[i] = arr[i];
-  // print_ints(a, arr_len);
-  insertion_sort(a, arr_len);
-  print_ints(a, arr_len);
+  insertion_sort(a, len);
+  print_ints(a, len);
+
+  cout << "merge_sort" << endl;
+  a = new int[len];
+  for (int i = 0; i < len; i++)
+    a[i] = arr[i];
+  merge_sort(a, len);
+  print_ints(a, len);
+
+  cout << "quick_sort" << endl;
+  a = new int[len];
+  for (int i = 0; i < len; i++)
+    a[i] = arr[i];
+  quick_sort(a, len);
+  print_ints(a, len);
+
+  cout << "radix_sort" << endl;
+  a = new int[len];
+  for (int i = 0; i < len; i++)
+    a[i] = arr[i];
+  radix_sort(a, len);
+  print_ints(a, len);
 }
 
 int main() {
