@@ -1,7 +1,7 @@
 * Inbox
-** TODO implement bubble
-** TODO implement selection sort
-** TODO implement insertion sort
+** DONE implement bubble
+** DONE implement selection sort
+** DONE implement insertion sort
 ** TODO implement shellsort
 ** TODO implement merge sort
 ** TODO implement quicksort
