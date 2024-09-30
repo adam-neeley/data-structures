@@ -41,7 +41,17 @@ void insertion_sort(int *arr, int len) {
         swap(arr[j - 1], arr[j]);
 }
 
-void shell_sort(int *arr, int len) { return; } // TODO
+void shell_sort(int *arr, int len) {
+  for (int gap = len / 2; gap > 0; gap /= 2)
+    for (int i = gap; i < len; i++) {
+      int tmp = arr[i];
+      int j;
+      for (j = i; j >= gap && arr[j - gap] > tmp; j -= gap)
+        arr[j] = arr[j - gap];
+      arr[j] = tmp;
+    }
+  return;
+}
 
 void merge(int *arr, int left, int mid, int right) {
   int len = right - left + 1;
