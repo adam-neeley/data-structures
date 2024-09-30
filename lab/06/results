@@ -1,0 +1,64 @@
+
+*** Running sorts on RANDOM values ***
+BUBBLE    SORT REPORT: 49938720 comparisons, 75184389 moves
+112687 ms
+SELECTION SORT REPORT: 49995000 comparisons, 29976 moves
+102710 ms
+INSERTION SORT REPORT: 25071454 comparisons, 75184389 moves
+52088 ms
+MERGESORT SORT REPORT: 120378 comparisons, 267232 moves, 19999 recursive calls 
+1435 ms
+QUICKSORT SORT REPORT: 144047 comparisons, 222318 moves, 12919 recursive calls 
+592 ms
+
+
+*** Running sorts on ALREADY SORTED values ***
+BUBBLE    SORT REPORT: 9999 comparisons, 0 moves
+22 ms
+SELECTION SORT REPORT: 49995000 comparisons, 0 moves
+102775 ms
+INSERTION SORT REPORT: 9999 comparisons, 0 moves
+22 ms
+MERGESORT SORT REPORT: 69008 comparisons, 267232 moves, 19999 recursive calls 
+1115 ms
+QUICKSORT SORT REPORT: 124107 comparisons, 188409 moves, 12286 recursive calls 
+218 ms
+
+
+*** Running sorts on MOSTLY SORTED values ***
+BUBBLE    SORT REPORT: 109934 comparisons, 13773 moves
+161 ms
+SELECTION SORT REPORT: 49995000 comparisons, 2697 moves
+102767 ms
+INSERTION SORT REPORT: 14590 comparisons, 13773 moves
+44 ms
+MERGESORT SORT REPORT: 70683 comparisons, 267232 moves, 19999 recursive calls 
+1023 ms
+QUICKSORT SORT REPORT: 126783 comparisons, 198843 moves, 12457 recursive calls 
+257 ms
+
+
+*** Running sorts on REVERSE SORTED values ***
+BUBBLE    SORT REPORT: 49995000 comparisons, 149985000 moves
+78780 ms
+SELECTION SORT REPORT: 49995000 comparisons, 15000 moves
+102660 ms
+INSERTION SORT REPORT: 49995000 comparisons, 149985000 moves
+90448 ms
+MERGESORT SORT REPORT: 64608 comparisons, 267232 moves, 19999 recursive calls 
+992 ms
+QUICKSORT SORT REPORT: 12519993 comparisons, 18787488 moves, 14995 recursive calls 
+20700 ms
+
+
+*** Running sorts on MANY DUPLICATES values ***
+BUBBLE    SORT REPORT: 49676199 comparisons, 77040000 moves
+75881 ms
+SELECTION SORT REPORT: 49995000 comparisons, 28800 moves
+102712 ms
+INSERTION SORT REPORT: 25689994 comparisons, 77040000 moves
+49348 ms
+MERGESORT SORT REPORT: 96985 comparisons, 267232 moves, 19999 recursive calls 
+1020 ms
+QUICKSORT SORT REPORT: 760470 comparisons, 153945 moves, 29407 recursive calls 
+993 ms

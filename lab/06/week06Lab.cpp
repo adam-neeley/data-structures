@@ -14,7 +14,7 @@ using namespace std;
 // NOTE:  ARRAY_SIZE needs to be a multiple of 100
 //        for the code below to work correctly
 
-const unsigned long int ARRAY_SIZE = 100; // Size of the array to be sorted
+const unsigned long int ARRAY_SIZE = 10000; // Size of the array to be sorted
 const unsigned long int MAX_VALUE =
     ARRAY_SIZE * 10; // Values range from 0 to MAX_VALUE-1
 
