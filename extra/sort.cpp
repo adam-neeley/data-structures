@@ -1,7 +1,10 @@
 
+#include <iomanip>
 #include <iostream>
 
 using namespace std;
+
+typedef void (*v_sort)(int *arr, int len);
 
 void swap(int &a, int &b) {
   int tmp = a;
@@ -76,7 +79,29 @@ void merge_sort_rec(int *arr, int left, int right) {
 
 void merge_sort(int *arr, int len) { merge_sort_rec(arr, 0, len - 1); }
 
-void quick_sort(int *arr, int len) { return; } // TODO
+int partition(int *arr, int left, int right, int pivot) {
+  int i = left;
+  int j = left;
+
+  while (i <= right)
+    if (arr[i] > pivot)
+      i++;
+    else
+      swap(arr[i++], arr[j++]);
+
+  return j - 1;
+}
+
+void quick_sort_rec(int *arr, int left, int right) {
+  if (left < right) {
+    int pivot = arr[right];
+    int pos = partition(arr, left, right, pivot);
+    quick_sort_rec(arr, left, pos - 1);
+    quick_sort_rec(arr, pos + 1, right);
+  }
+}
+
+void quick_sort(int *arr, int len) { quick_sort_rec(arr, 0, len - 1); }
 
 void radix_sort(int *arr, int len) {
   int exp = 1;
@@ -112,58 +137,35 @@ void radix_sort(int *arr, int len) {
 
 void print_ints(int *ints, int len) {
   for (int i = 0; i < len; i++)
-    cout << ints[i] << " ";
+    cout << right << ints[i] << " ";
+}
+
+void process_sort(string sort_name, v_sort sort_call, int *arr, int len) {
   cout << endl;
+  cout << setw(10) << sort_name << ": ";
+  int *a = new int[len];
+  for (int i = 0; i < len; i++)
+    a[i] = arr[i];
+  sort_call(a, len);
+  print_ints(a, len);
 }
 
 void process_arr(int *arr, int len) {
-  cout << endl;
-
-  int *a;
+  cout << endl
+       << setw(10) << "array"
+       << ": ";
 
   print_ints(arr, len);
 
-  cout << "bubble_sort" << endl;
-  a = new int[len];
-  for (int i = 0; i < len; i++)
-    a[i] = arr[i];
-  bubble_sort(a, len);
-  print_ints(a, len);
+  process_sort("bubble", bubble_sort, arr, len);
+  process_sort("selection", selection_sort, arr, len);
+  process_sort("insertion", insertion_sort, arr, len);
+  process_sort("shell", shell_sort, arr, len);
+  process_sort("merge", merge_sort, arr, len);
+  process_sort("quick", quick_sort, arr, len);
+  process_sort("radix", radix_sort, arr, len);
 
-  cout << "selection_sort" << endl;
-  a = new int[len];
-  for (int i = 0; i < len; i++)
-    a[i] = arr[i];
-  selection_sort(a, len);
-  print_ints(a, len);
-
-  cout << "insertion_sort" << endl;
-  a = new int[len];
-  for (int i = 0; i < len; i++)
-    a[i] = arr[i];
-  insertion_sort(a, len);
-  print_ints(a, len);
-
-  cout << "merge_sort" << endl;
-  a = new int[len];
-  for (int i = 0; i < len; i++)
-    a[i] = arr[i];
-  merge_sort(a, len);
-  print_ints(a, len);
-
-  cout << "quick_sort" << endl;
-  a = new int[len];
-  for (int i = 0; i < len; i++)
-    a[i] = arr[i];
-  quick_sort(a, len);
-  print_ints(a, len);
-
-  cout << "radix_sort" << endl;
-  a = new int[len];
-  for (int i = 0; i < len; i++)
-    a[i] = arr[i];
-  radix_sort(a, len);
-  print_ints(a, len);
+  cout << endl;
 }
 
 int main() {

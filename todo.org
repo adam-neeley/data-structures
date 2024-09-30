@@ -3,6 +3,6 @@
 ** DONE implement selection sort
 ** DONE implement insertion sort
 ** TODO implement shellsort
-** TODO implement merge sort
-** TODO implement quicksort
+** DONE implement merge sort
+** DONE implement quicksort
 ** TODO implement radix sort
