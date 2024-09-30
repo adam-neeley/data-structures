@@ -113,32 +113,63 @@ void quick_sort_rec(int *arr, int left, int right) {
 
 void quick_sort(int *arr, int len) { quick_sort_rec(arr, 0, len - 1); }
 
-void radix_sort(int *arr, int len) {
-  int exp = 1;
-  int max = arr[0];
+// Radix Sort in C++ Programming
 
-  // find max
+#include <iostream>
+using namespace std;
+
+// Function to get the largest element from an array
+int get_min(int arr[], int len) {
+  int min = arr[0];
+  for (int i = 1; i < len; i++)
+    if (arr[i] < min)
+      min = arr[i];
+  return min;
+}
+int get_max(int arr[], int len) {
+  int max = arr[0];
   for (int i = 1; i < len; i++)
     if (arr[i] > max)
       max = arr[i];
+  return max;
+}
 
-  while (max / exp > 0) {
-    int *radix_arr = new int[10];
-    for (int i = 0; i < 10; i++) {
-      int num = radix_arr[i];
-      radix_arr[(num / exp) % 10] = num;
-    }
+// Using counting sort to sort the elements in the basis of significant places
+void radix_count(int arr[], int len, int place) {
+  const int max = 10;
+  int output[len];
+  int count[max];
 
-    // for (int i = 0; i < 10; i++) { // TODO
-    //   int num = radix_arr[i];
-    //   radix_arr[(num / exp) % 10] = num;
-    // }
+  for (int i = 0; i < max; ++i)
+    count[i] = 0;
 
-    exp *= 10;
+  for (int i = 0; i < len; i++)
+    count[(arr[i] / place) % 10]++;
+
+  for (int i = 1; i < max; i++)
+    count[i] += count[i - 1];
+
+  for (int i = len - 1; i >= 0; i--) {
+    output[count[(arr[i] / place) % 10] - 1] = arr[i];
+    count[(arr[i] / place) % 10]--;
   }
 
-  return;
-  //
+  for (int i = 0; i < len; i++)
+    arr[i] = output[i];
+}
+
+void radix_sort(int arr[], int len) {
+  for (int i = 0; i < len; i++) {
+    if (arr[i] < 0) {
+      cout << "error "; // numbers must be non-negative
+      return;
+    }
+  }
+
+  int max = get_max(arr, len);
+
+  for (int place = 1; max / place > 0; place *= 10)
+    radix_count(arr, len, place);
 }
 
 //
@@ -180,7 +211,7 @@ void process_arr(int *arr, int len) {
 
 int main() {
 
-  int arr1[] = {1, 5, 9, 2, 8, 3, 10, -40, 30, 100};
+  int arr1[] = {1, 5, 9, 2, 8, 3, 10, 40, 30, 100};
   int arr1_len = sizeof(arr1) / sizeof(arr1[0]);
 
   int arr2[] = {5, 4, 3, 2, 1, 0, -1, -2, -3, -4, -5};
