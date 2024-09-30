@@ -1,8 +1,0 @@
-* Inbox
-** DONE implement bubble
-** DONE implement selection sort
-** DONE implement insertion sort
-** DONE implement shellsort
-** DONE implement merge sort
-** DONE implement quicksort
-** DONE implement radix sort
