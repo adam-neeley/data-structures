@@ -1,0 +1,15 @@
+#+title: Week 6
+* plan
+** thu
+SCHEDULED: <2024-10-03 Thu>
+review exam
+** mon
+makeup lab
+SCHEDULED: <2024-10-07 Mon>
+** tue
+exam
+SCHEDULED: <2024-10-08 Tue>
+** thu
+SCHEDULED: <2024-10-10 Thu>
+no class
+* hash tables
