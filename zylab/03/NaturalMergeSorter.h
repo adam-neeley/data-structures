@@ -3,6 +3,9 @@
 
 class NaturalMergeSorter {
 public:
+  /*
+  ** GetSortedRunLength
+  */
   virtual int GetSortedRunLength(int *array, int arrayLength, int startIndex) {
     return GetSortedRunLengthRec(array, startIndex, arrayLength - 1);
   }
@@ -16,25 +19,39 @@ public:
     return 1 + GetSortedRunLengthRec(array, leftPos + 1, rightPos);
   }
 
+  /*
+  ** NaturalMergeSort
+  ** | 0 | 1 | 2 | 3 | 4 | 5 |
+  ** | 1 | 2 | 3 | 2 | 3 | 2 |
+  ** | A | A | A | B | B | C |
+  ** i = 0
+  ** len1: 3
+  ** len2: 2
+  ** i = 1
+  ** len1: 1
+  ** len2: 2
+  */
   virtual void NaturalMergeSort(int *array, int arrayLength) {
-    int i = 0;
-    while (true) {
-      int firstRunLength = GetSortedRunLength(array, arrayLength, i);
-      if (firstRunLength == arrayLength)
+    for (int i = 0; i < arrayLength; i++) {
+      int len1 = GetSortedRunLength(array, arrayLength, i);
+      if (len1 == arrayLength)
         return;
-      if (firstRunLength == 0)
-        return;
-      if (i + firstRunLength == arrayLength) {
+      if (i + len1 == arrayLength) {
         i = 0;
         continue;
       }
-      int secondRunLength =
-          GetSortedRunLength(array, arrayLength, i + firstRunLength);
-      Merge(array, i, i + firstRunLength - 1, arrayLength - 1);
-      i = (i + firstRunLength + secondRunLength) % arrayLength;
+      int len2 = GetSortedRunLength(array, arrayLength, i + len1);
+      Merge(array, i, i + len1 - 1, i + len1 + len2 - 1);
+      if (i + len1 + len2 - 1 == arrayLength)
+        i = 0;
+      else
+        i = i + len1 + len2;
     }
   }
 
+  /*
+  ** Merge
+  */
   virtual void Merge(int *numbers, int leftFirst, int leftLast, int rightLast) {
     int mergedSize = rightLast - leftFirst + 1;
     int *mergedNumbers = new int[mergedSize];
