@@ -4,11 +4,20 @@
 * plan
 ** thu
 SCHEDULED: <2024-10-03 Thu>
+:PROPERTIES:
+:ID:       3b16701f-e1f9-49d5-bd25-d32f01b175cd
+:END:
 review exam
 ** mon
+:PROPERTIES:
+:ID:       b7ea2df2-f1f6-4421-b964-cac564b2c356
+:END:
 makeup lab
 SCHEDULED: <2024-10-07 Mon>
 ** tue
+:PROPERTIES:
+:ID:       8b026b11-20c3-4c6b-b812-1ce4e860da20
+:END:
 exam
 SCHEDULED: <2024-10-08 Tue>
 ** thu
