@@ -1,5 +1,6 @@
 // CS 211 Fall 2024 - Week 10 Lab
-// <NAMES GO HERE>
+// Adam Neeley
+// Richard Bennett
 
 //  class: HashTable
 //
