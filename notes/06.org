@@ -1,4 +1,6 @@
 #+title: Week 6
+#+description: Chapter 6
+#+startup: latexpreview
 * plan
 ** thu
 SCHEDULED: <2024-10-03 Thu>
@@ -13,3 +15,25 @@ SCHEDULED: <2024-10-08 Tue>
 SCHEDULED: <2024-10-10 Thu>
 no class
 * hash tables
++ $o(1)$
+** keys
+*** hash
+** bucket
+** functions
+*** modular arithmetic
+$h(k) = (k \mod p) \mod tableSize$
+*** folding
+$x \implies (\text{fold}\circ\text{pad})(x)$
+$123-45-6789 \to 123 + 456 + 789 \mod{tableSize} = 1368 \mod{tableSize}$
+**** shift
+**** boundary
+*** mid-square
+1. square key
+   $key = 101$
+   $key^2 = 10201$
+2. extract middle part
+   $part = 020$
+** collision resolution
+*** chaining
++ linked list of nodes
++ worst case: $O(|K|)$
