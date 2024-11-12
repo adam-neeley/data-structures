@@ -1,5 +1,5 @@
 #+title: Lecture Notes
-#+startup: show3levels
+#+startup: overview
 * introduction :week_1:
 ** ADT
 + string
@@ -64,22 +64,21 @@ p_ptr = new int;
 **** pointers vs ref variables
 + can change value of pointer vs value of (eg) integer
 * complexity :week_2:
-** complexity
-*** asymptotic
+** asymptotic
 + $y = \tan x$
   $x = \frac\pi2$
 + as $n \to \infty$
-*** measure
-**** time
+** measure
+*** time
 amount time as function of n
-**** space
+*** space
 amount memory as function of n
-*** example
-**** $f(n) = n^2 + 100n + \log_{10}n + 1000$
+** example
+*** $f(n) = n^2 + 100n + \log_{10}n + 1000$
 + $f(1) = 1 + 100 + 0 + 1000 = 1101$
 + $f(100) = 10000 + 10000 + 2 + 1000 = 21002$
 $\implies n^2$ dominates
-*** math
+** math
 $f(n) = O(g(n)) \iff \exists c\in\mathbb{R}, N\in\mathbb{N} \: \forall n < N \: \colon \: 0 \le f(n) \le cg(n) \: \forall n>N$
 ** 4 common ops
 1. insert
@@ -91,7 +90,7 @@ $f(n) = O(g(n)) \iff \exists c\in\mathbb{R}, N\in\mathbb{N} \: \forall n < N \: 
 ** classes
 *** $O(n)$
 + $n =$ length of list
-**** cases
+**** eg cases
 ***** worst $O(n)$
 not in list
 ***** best $O(1)$
@@ -309,3 +308,5 @@ $part = 020$
 *** chaining
 + linked list of nodes
 + worst case: $O(|K|)$
+* trees :week_8:
+**

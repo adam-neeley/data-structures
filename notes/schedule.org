@@ -1,13 +1,17 @@
 #+title: Schedule
-* thu 9/26
-* monday 9/30
+* DONE thu 9/26
+* DONE monday 9/30
 fast sorts
-* tue
+* DONE tue
 hash tables
-* thu 10/3
+* DONE thu 10/3
 review exam
-* mon 10/7
-* tue 10/8
+* DONE mon 10/7
+* DONE tue 10/8
 exam 1
-* sun 10/13
+* DONE sun 10/13
 assignment #2
+* TODO zybooks ch.6 (hash tables)
+DEADLINE: <2024-10-20 Sun>
+* TODO zybooks ch.7 (trees)
+DEADLINE: <2024-10-27 Sun>
