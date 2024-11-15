@@ -1,6 +1,6 @@
-#+title: Lecture Notes
+#+title: data structures
 #+startup: overview
-* introduction :week_1:
+* introduction :week_1:exam1:
 ** ADT
 + string
 + vector
@@ -63,7 +63,7 @@ p_ptr = new int;
 + deep copy vs shallow copy
 **** pointers vs ref variables
 + can change value of pointer vs value of (eg) integer
-* complexity :week_2:
+* complexity :week_2:exam1:
 ** asymptotic
 + $y = \tan x$
   $x = \frac\pi2$
@@ -144,12 +144,15 @@ $f(n)=3n^2$
 $g(n)=5n^2$
 $f(n)=O(g(n))$
 $g(n)=\Omega(f(n))$
-* recursion :week_3:
+* recursion :week_3:exam1:
 ** recursion
 *** head recursion
 recurse first, then compute
 *** tail recursion
 compute first, then recurse
+recursive call occurs at very end
+*** indirect
+calls another function that calls self
 ** eg
 *** gcd
 #+begin_src haskell
@@ -181,8 +184,7 @@ main = printf "hi"
 *** fibonacci
 + default = $\phi^n$
 + also $O(n), O(\log{n})$
-* sorting :week_4:
-|------------+---+-----------------------------|
+* sorting :week_4:exam1:
 | name       |   | complexity                  |
 |------------+---+-----------------------------|
 | bubble     |   | O(n^2)                      |
@@ -192,17 +194,26 @@ main = printf "hi"
 | merge sort |   | O(nlogn)                    |
 | quicksort  |   | O(nlogn)                    |
 | radix sort |   | O(n) <- not really O(nlogn) |
-|------------+---+-----------------------------|
 ** bubble
 1. compare to nearest
 2. swap when out order
 + n elements => n sweeps
 + add `bool didSwap` for more efficiency
 ** selection
-1. swap with smallest remaining value
+1. find index_smallest unsorted
+2. swap if necessary
 ** insertion
+1. for each index, search backwards for greater value
 ** shellsort
 comparison sort
++ of the array are Insertion-sorted separately based on a “gap length,” the distance between elements in the array
++ each sub-array in the list is sorted, the gap length is
+shortened and Insertion sort is performed again
++ the sub-arrays are sorted, the number of swaps needed
+to sort the larger “partially” sorted sub-arrays based on
++ gap length is less than it would be for random values
++ gap length eventually becomes 1 (no gap) and the array is
+sorted
 ** merge sort
 1. sort left half
 2. sort right half
@@ -210,7 +221,18 @@ comparison sort
 takes log_2(n) steps
 each step takes n steps
 so O(nlogn)
++ In the base case, you have only 1 or 2 items to sort in O(1) time
++ merge step consists of looking at the leftmost (smallest) remaining value in each half-sized list, and removing the smaller of those two values and placing in the leftmost open spot in the sorted list – like “zippering” them together!
++ This algorithm requires extra space the size of the original list, which is O(n) additional space complexity
+*** steps
+1. Sort the left half of the list using Merge Sort
+2. the right half of the list using Merge Sort
+3. Merge the two half-sized sorted lists into a sorted list
 ** quicksort :exam:
++ does work before recursion
++ selects pivot
++ places pivot in correct place
+*** steps
 1. choose pivot
 2. partition list
 3. quicksort left
@@ -218,7 +240,8 @@ so O(nlogn)
 |    |    |    | p1 |    |    |
 |    | p2 |    | p1 | p2 |    |
 | p3 | p2 | p3 | p1 | p2 | p3 |
-
+** radix
++ sort by digits
 ** cases
 *** best :exam:
 *** average :exam:
@@ -285,12 +308,12 @@ int main () {
 |----------+---+---+---+---+---+---+---+----------|
 | ^ insert |   |   |   |   |   |   |   | ^ remove |
 |----------+---+---+---+---+---+---+---+----------|
-* hash tables :week_6:
+* hash tables :week_6:exam2:
 + $o(1)$
 ** keys
 *** hash
 ** bucket
-** functions
+** hash functions
 *** modular arithmetic
 $h(k) = (k \mod p) \mod tableSize$
 *** folding
@@ -308,5 +331,114 @@ $part = 020$
 *** chaining
 + linked list of nodes
 + worst case: $O(|K|)$
-* trees :week_8:
-**
+** hash table
+*** insertion
+*** retrieval
+*** how to use array implementation
+*** collision
+**** basic methods
+**** linear probing
+**** quadratic probing
+**** clustering
+*** chaining
+**** using linked list
+**** how affect complexity
+*** deletion
+**** if probing don't remove, mark as deleted
+*** complexity
+**** average
+**** worst
+* trees :week_8:exam2:
+** given picture
++ tree?
++ binary?
+** terms
+*** node
+*** edge
+*** parent
+*** child
+*** sibling
+*** root
+*** leaf
+*** interior node
+*** ancestor node
+*** descendant node
+*** subtree
+*** left/right child
+*** left/right subtree
+*** height tree/subtree
+*** complete
+*** perfect
+*** [#B] balanced
+*** path
+*** path length
+** traversal
+*** preorder
+*** inorder
+*** postorder
+** binary search tree
+*** search: average & worst Big-O
+*** insert: average & worst Big-O
+*** delete (before balancing): average & worst Big-O
+*** delete by copying
+*** result of traversing in order
+* balanced tree
+*** average case height O(log n)
+*** worst case height O(n)
+** rotation
+*** left
+*** right
+*** right-right
+*** right-left
+*** left-left
+*** left-right
+** AVL
+*** what is balanced
+*** how it balances
+using balance factors at each node
+*** when it balances
+after insertion or deletion
+*** balance factor
+** red black tree
+*** properties
+* heaps/treaps
+** heap
+*** basic properties
+*** min-heap vs max-heap
+*** when is heap useful
+*** how is implemented
+**** insertion
+**** removal
+what nodes are allowed to be removed
+*** how heap ensures well-balanced after insertion/deletion
+*** priority queue
+** treap
+*** how treap uses properties of search tree and heap
+*** how does treap promote/demote values while retaining search tree
+*** how are values inserted
+*** how are values deleted
+* exam 2
+** which of these is a valid tree?
+** what are left/right, descendants, ancestors, ... ? (10pts)
+** populate a tree (10pts)
+** big-o for trees (12pts)
+** Multiple choice (68pts)
+*** ~9 on hashing
+*** ~9 on trees
+*** ~9 on AVL
+*** ~4 on heaps/treaps
+** which operation is used to compute bucket index?
+** height of BST built by 12, 24, 23, 48, 47
+12
+   \
+    24
+   / \
+  23 48
+     /
+    47
+** what is min possible height of AVL tree: 320, 470, 500, 540, 700, 650, 870
+        500
+       /   \
+    470     650
+   /        /  \
+ 320      540   870

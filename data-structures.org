@@ -1,30 +1,493 @@
 #+title: Data Structures
-* plan
-** thu
+#+startup: overview
+* schedule
+** DONE thu
 SCHEDULED: <2024-10-03 Thu>
 :PROPERTIES:
 :ID:       3b16701f-e1f9-49d5-bd25-d32f01b175cd
 :END:
 review exam
-** mon
+** DONE mon
 :PROPERTIES:
 :ID:       b7ea2df2-f1f6-4421-b964-cac564b2c356
 :END:
 makeup lab
 SCHEDULED: <2024-10-07 Mon>
-** tue
+** DONE tue
 :PROPERTIES:
 :ID:       8b026b11-20c3-4c6b-b812-1ce4e860da20
 :END:
 exam
 SCHEDULED: <2024-10-08 Tue>
-** thu
+** DONE thu
 SCHEDULED: <2024-10-10 Thu>
 no class
-* DONE implement bubble
-* DONE implement selection sort
-* DONE implement insertion sort
-* DONE implement shellsort
-* DONE implement merge sort
-* DONE implement quicksort
-* DONE implement radix sort
+
+** DONE thu 9/26
+** DONE monday 9/30
+fast sorts
+** DONE tue
+hash tables
+** DONE thu 10/3
+review exam
+** DONE mon 10/7
+** DONE tue 10/8
+exam 1
+** DONE sun 10/13
+assignment #2
+** DONE zybooks ch.6 (hash tables)
+DEADLINE: <2024-10-20 Sun>
+** DONE zybooks ch.7 (trees)
+DEADLINE: <2024-10-27 Sun>
+** TODO zybook ch 10
+DEADLINE: <2024-11-24 Sun>
+SCHEDULED: <2024-11-17 Sun>
+** TODO zybook ch 11
+DEADLINE: <2024-12-08 Sun> SCHEDULED: <2024-11-24 Sun>
+** TODO zybook ch 12
+DEADLINE: <2024-12-15 Sun> SCHEDULED: <2024-12-08 Sun>
+** TODO assign #3
+DEADLINE: <2024-11-24 Sun>
+
+* introduction :week_1:exam1:
+** ADT
++ string
++ vector
++ bag
++ stack
+*** eg
+**** stack
+| push |   | pop |
+| ---- |   | --- |
+|      | 3 |     |
+|      | 2 |     |
+|      | 1 |     |
+**** operations (atomic actions)
++ push
++ pop
++ top
++ empty
++ create
+** c++ implementation
++ [ ] classes / objects
++ [ ] encapsulation
++ [ ] inheritance
++ [ ] polymorphism
++ [ ] pointers
+*** object
++ data structure with methods
++ can use class / template class to define ADT
+*** data encapsulation
++ instantiation of a class, creating an entity that can be used in a program
+*** information hiding
+*** inheritance
++ forms a hierarchy
++ "is-a" relationship
+*** polymorphism
+*** pointers
++ variable is defined by
+  1. what it stores
+  2. its location in memory
+**** dereference
+#+begin_src c
+p_ptr = &i;
+p_val = *p_ptr;
+#+end_src
+**** after using
+#+begin_src c
+p_ptr = new int;
+delete p_ptr;
+#+end_src
+**** after deleting
+#+begin_src c
+p_ptr = NULL;
+p_ptr = 0;
+#+end_src
+**** leaks
+#+begin_src c
+p_ptr = new int;
+p_ptr = new int;
+#+end_src
+**** copy constructors
++ deep copy vs shallow copy
+**** pointers vs ref variables
++ can change value of pointer vs value of (eg) integer
+* complexity :week_2:exam1:
+** asymptotic
++ $y = \tan x$
+  $x = \frac\pi2$
++ as $n \to \infty$
+** measure
+*** time
+amount time as function of n
+*** space
+amount memory as function of n
+** example
+*** $f(n) = n^2 + 100n + \log_{10}n + 1000$
++ $f(1) = 1 + 100 + 0 + 1000 = 1101$
++ $f(100) = 10000 + 10000 + 2 + 1000 = 21002$
+$\implies n^2$ dominates
+** math
+$f(n) = O(g(n)) \iff \exists c\in\mathbb{R}, N\in\mathbb{N} \: \forall n < N \: \colon \: 0 \le f(n) \le cg(n) \: \forall n>N$
+** 4 common ops
+1. insert
+2. delete
+   + typically requires search
+3. search
+4. sort
+
+** classes
+*** $O(n)$
++ $n =$ length of list
+**** eg cases
+***** worst $O(n)$
+not in list
+***** best $O(1)$
+first item
+***** average $O(\frac{n}2) = O(n)$
+*** $O(n \log_a n)$
+*** $O(\log_a n)$
+*** $O(n^2)$
+*** $O(a^n)$
+** bounds
+*** $O(n)$ greatest upper bound
+**** pf
+want $c,N$ s.t.  $3n^2 + 4n - 2 \le cn^2$ $\forall n\ge N$
+$\implies 3 + \frac4n - \frac2{ n^2 } \le c$
+set $N=1$
+$\implies 3 + \frac4n - \frac2{ n^2 } \le 5$
+choose $c=5$
+**** transitive
+$f(n) = O(g(n))$
+$g(n) = O(h(n))$
+$\implies f(n) = O(h(n))$
+**** ?? :exam1:
+$f(n) = O(h(n))$
+$g(n) = O(h(n))$
+$\implies f(n) + g(n) = O(h(n))$
+**** any $k^\text{th}$ deg poly of $n$ is $O(n^{k+j})$ $\forall j>0$
+*** $\Theta(n)$ both :exam1:
+*** $\Omega(n)$ greatest lowest bound :exam1:
+** logarithm
+*** $\lg$ binary
+*** $\log$ decimal
+*** $\ln$ euler
+** recursive
+*** linear
+$T(n) = kn$
+$T(n) = 2\cdot T(\frac{n}2)$
+*** log
+$T(n) = T(n/2) + k$
+$\implies O(\log n)$
+*** line arithmetic
+$T(n)=2*T(n/2)+O(n)$
+$\implies O(n\log n)$
+*** quadratic
+$O(n^2)$
+$T(n) = T(n-1) + O(n)$
+*** exponential
+$T(n)=T(n-1)*k$
+$O(k^n)$
+** eg
+$f(n)=3n^2$
+$g(n)=5n^2$
+$f(n)=O(g(n))$
+$g(n)=\Omega(f(n))$
+* recursion :week_3:exam1:
+** recursion
+*** head recursion
+recurse first, then compute
+*** tail recursion
+compute first, then recurse
+recursive call occurs at very end
+*** indirect
+calls another function that calls self
+** eg
+*** gcd
+#+begin_src haskell
+import Text.Printf ( printf )
+
+gcd1:: Integer -> Integer -> Integer
+gcd1 a b
+  | b < a = gcd1 b a
+  | otherwise = gcd1 (b `mod` a) a
+
+fib:: Integer -> Integer
+fib n
+  | n < 2 = n
+  | otherwise = (fib (n-1)) + (fib (n-2))
+
+main = printf "hi"
+#+end_src
+** order
+*** preorder
+*** midorder
+*** postorder
+** nontail recursion
+*** iterative
+1. implement stack
+2. less clarity & brevity
+3. aoeu
+** indirect recursion
+** excessive recursion
+*** fibonacci
++ default = $\phi^n$
++ also $O(n), O(\log{n})$
+* sorting :week_4:exam1:
+| name       |   | complexity                  |
+|------------+---+-----------------------------|
+| bubble     |   | O(n^2)                      |
+| selection  |   | O(n^2)                      |
+| insertion  |   | O(n^2)                      |
+| shellsort  |   | between O(nlogn) O(n^2)     |
+| merge sort |   | O(nlogn)                    |
+| quicksort  |   | O(nlogn)                    |
+| radix sort |   | O(n) <- not really O(nlogn) |
+** bubble
+1. compare to nearest
+2. swap when out order
++ n elements => n sweeps
++ add `bool didSwap` for more efficiency
+** selection
+1. find index_smallest unsorted
+2. swap if necessary
+** insertion
+1. for each index, search backwards for greater value
+** shellsort
+comparison sort
++ of the array are Insertion-sorted separately based on a “gap length,” the distance between elements in the array
++ each sub-array in the list is sorted, the gap length is
+shortened and Insertion sort is performed again
++ the sub-arrays are sorted, the number of swaps needed
+to sort the larger “partially” sorted sub-arrays based on
++ gap length is less than it would be for random values
++ gap length eventually becomes 1 (no gap) and the array is
+sorted
+** merge sort
+1. sort left half
+2. sort right half
+3. merge both
+takes log_2(n) steps
+each step takes n steps
+so O(nlogn)
++ In the base case, you have only 1 or 2 items to sort in O(1) time
++ merge step consists of looking at the leftmost (smallest) remaining value in each half-sized list, and removing the smaller of those two values and placing in the leftmost open spot in the sorted list – like “zippering” them together!
++ This algorithm requires extra space the size of the original list, which is O(n) additional space complexity
+*** steps
+1. Sort the left half of the list using Merge Sort
+2. the right half of the list using Merge Sort
+3. Merge the two half-sized sorted lists into a sorted list
+** quicksort :exam1:
++ does work before recursion
++ selects pivot
++ places pivot in correct place
+*** steps
+1. choose pivot
+2. partition list
+3. quicksort left
+4. quicksort right
+|    |    |    | p1 |    |    |
+|    | p2 |    | p1 | p2 |    |
+| p3 | p2 | p3 | p1 | p2 | p3 |
+** radix
++ sort by digits
+** cases
+*** best :exam1:
+*** average :exam1:
+*** worst :exam1:
+
+* lists, stacks, queues :week_5:
+** Lists
++ payload: value 🙂
++ node: contains payload 🔳
++ linked list: head
+*** Pointer
+| 0 | 1 | 2 | 3 | 4 | 5 | 6 | ... |
+*** Singly Linked
+| 0 | -> | 1 | -> | 2 | -> | 3 | -> | ... |
+#+begin_src cpp
+class IntSLLNode {
+public:
+        IntSSLNode() {
+                next = 0;
+        }
+        IntSLLNode(int i, IntSLLNode *in = 0) {
+                info = i;
+                next = in;
+        }
+        int getInfo() {
+            return info;
+        }
+private:
+        int info;
+        IntSLLNode *next;
+};
+
+int main () {
+    IntSLLNode head(99);
+    std::cout << head->getInfo() << std::endl;
+    return 0;
+}
+#+end_src
+#+RESULTS:
+:results:
+:end:
+**** DUMMY
++ always in list
++ list empty when both head and tail = dummy
+
+*** Doubly Linked
+| 0 | <-> | 1 | <-> | 2 | <-> | 3 | <-> | ... |
+** Stacks
+| 👨 |
+| 🐶 |
+| 🐸 |
+| 😜 |
+|-----|
++ one-dimensional
++ LIFO: last in first out
+*** primitive/atomic actions
++ push: payload
++ pop: payload -> void
++ is_empty: bool
+** Queues
+*** fifo
+|----------+---+---+---+---+---+---+---+----------|
+| back     |   |   |   |   |   |   |   | front    |
+|----------+---+---+---+---+---+---+---+----------|
+| ^ insert |   |   |   |   |   |   |   | ^ remove |
+|----------+---+---+---+---+---+---+---+----------|
+* hash tables :week_6:exam2:
++ $o(1)$
+** keys
+*** hash
+** bucket
+** hash functions
+*** modular arithmetic
+$h(k) = (k \mod p) \mod tableSize$
+*** folding
+$x \implies (\text{fold}\circ\text{pad})(x)$
+$123-45-6789 \to 123 + 456 + 789 \mod{tableSize} = 1368 \mod{tableSize}$
+**** shift
+**** boundary
+*** mid-square
+1. square key
+$key = 101$
+$key^2 = 10201$
+2. extract middle part
+$part = 020$
+** collision resolution
+*** chaining
++ linked list of nodes
++ worst case: $O(|K|)$
+** hash table
+*** insertion
+*** retrieval
+*** how to use array implementation
+*** collision
+**** basic methods
+**** linear probing
+**** quadratic probing
+**** clustering
+*** chaining
+**** using linked list
+**** how affect complexity
+*** deletion
+**** if probing don't remove, mark as deleted
+*** complexity
+**** average
+**** worst
+* trees :week_8:exam2:
+** given picture
++ tree?
++ binary?
+** terms
+*** node
+*** edge
+*** parent
+*** child
+*** sibling
+*** root
+*** leaf
+*** interior node
+*** ancestor node
+*** descendant node
+*** subtree
+*** left/right child
+*** left/right subtree
+*** height tree/subtree
+*** complete
+*** perfect
+*** [#B] balanced
+*** path
+*** path length
+** traversal
+*** preorder
+*** inorder
+*** postorder
+** binary search tree
+*** search: average & worst Big-O
+*** insert: average & worst Big-O
+*** delete (before balancing): average & worst Big-O
+*** delete by copying
+*** result of traversing in order
+* balanced tree :exam2:
+*** average case height O(log n)
+*** worst case height O(n)
+** rotation
+*** left
+*** right
+*** right-right
+*** right-left
+*** left-left
+*** left-right
+** AVL
+*** what is balanced
+*** how it balances
+using balance factors at each node
+*** when it balances
+after insertion or deletion
+*** balance factor
+** red black tree
+*** properties
+* heaps/treaps :exam2:
+** heap
+*** basic properties
+*** min-heap vs max-heap
+*** when is heap useful
+*** how is implemented
+**** insertion
+**** removal
+what nodes are allowed to be removed
+*** how heap ensures well-balanced after insertion/deletion
+*** priority queue
+** treap
+*** how treap uses properties of search tree and heap
+*** how does treap promote/demote values while retaining search tree
+*** how are values inserted
+*** how are values deleted
+* questions :exam2:
+** which of these is a valid tree?
+** what are left/right, descendants, ancestors, ... ? (10pts)
+** populate a tree (10pts)
+** big-o for trees (12pts)
+** Multiple choice (68pts)
+*** ~9 on hashing
+*** ~9 on trees
+*** ~9 on AVL
+*** ~4 on heaps/treaps
+** which operation is used to compute bucket index?
+** height of BST built by 12, 24, 23, 48, 47
+12
+   \
+    24
+   / \
+  23 48
+     /
+    47
+** what is min possible height of AVL tree: 320, 470, 500, 540, 700, 650, 870
+        500
+       /   \
+    470     650
+   /        /  \
+ 320      540   870
